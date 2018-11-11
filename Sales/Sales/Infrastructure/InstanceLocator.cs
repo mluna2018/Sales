@@ -4,7 +4,9 @@ using System.Text;
 
 namespace Sales.Infrastructure
 {
-    class InstanceLocator
+    public class InstanceLocator
     {
+        public MainViewModel Main { get; set; }
+
     }
 }
