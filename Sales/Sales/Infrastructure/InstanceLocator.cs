@@ -1,12 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿
+
+
 
 namespace Sales.Infrastructure
 {
+    using Sales.ViewModels;
+
     public class InstanceLocator
     {
-        public MainViewModel Main { get; set; }
+        public MainViewModels Main { get; set; }
 
+        public InstanceLocator()
+        {
+
+        }
     }
 }
