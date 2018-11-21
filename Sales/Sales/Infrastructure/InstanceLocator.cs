@@ -12,6 +12,7 @@ namespace Sales.Infrastructure
 
         public InstanceLocator()
         {
+            this.Main = new MainViewModels();
 
         }
     }

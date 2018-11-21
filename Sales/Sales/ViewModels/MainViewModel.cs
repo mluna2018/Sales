@@ -1,10 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿
 
 namespace Sales.ViewModels
 {
-    class MainViewModels
+    public class MainViewModels
     {
+        public ProductsViewModel Products { get; set; }
+
+        public MainViewModels()
+        {
+            this.Products = new ProductsViewModel();
+        }
     }
 }

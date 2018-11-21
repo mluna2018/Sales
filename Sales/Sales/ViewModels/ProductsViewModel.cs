@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Sales.ViewModels
 {
-    class ProductsViewModel
+    public class ProductsViewModel
     {
     }
 }
