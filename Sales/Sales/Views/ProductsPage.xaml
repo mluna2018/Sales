@@ -5,8 +5,10 @@
              BindingContext="{Binding Main,  Source={StaticResource Locator}}">
     <ContentPage.Content>
         <StackLayout 
-            BindingContext="{Binding Products}">
+            BindingContext="{Binding Products}"
+            Padding="5">
             <ListView
+                HasUnevenRows="True"
                 ItemsSource="{Binding Products}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
