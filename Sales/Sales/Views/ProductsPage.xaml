@@ -8,8 +8,28 @@
             BindingContext="{Binding Products}">
             <ListView
                 ItemsSource="{Binding Products}">
-                
-                
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="2*"/>
+                                    <ColumnDefinition Width=".5*"/>
+                                </Grid.ColumnDefinitions>
+                                <Label
+                                    FontAttributes="Bold"
+                                    Grid.Column="0"
+                                    Text="{Binding Description}">
+                                </Label>
+                                <Label
+                                    Grid.Column="1"
+                                    HorizontalOptions="End"
+                                    Text="{Binding Price, StringFormat='{0:C2}'}">
+                                </Label>
+                            </Grid>
+                        </ViewCell> 
+                    </DataTemplate>                    
+                </ListView.ItemTemplate>                
             </ListView>
         </StackLayout>
     </ContentPage.Content>
