@@ -3,17 +3,24 @@
 namespace Sales.ViewModels
 {
     using Common.Models;
+    using GalaSoft.MvvmLight.Command;
     using Services;
     using System;
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
+    using System.Windows.Input;
     using Xamarin.Forms;
 
     public class ProductsViewModel : BaseViewModel
     {
         private ApiService apiService;
 
+        private bool isRefreshing;
+
+
+
         private ObservableCollection<Product> products;
+
 
         public ObservableCollection<Product> Products
         {
@@ -21,8 +28,18 @@ namespace Sales.ViewModels
             set {this.SetValue(ref this.products, value); }
         }
 
+        public bool IsRefreshing
+        {
+            get { return this.isRefreshing; }
+            set { this.SetValue(ref this.isRefreshing, value); }
+        }
+
+
+
         public ProductsViewModel()
         {
+
+            this.IsRefreshing = false;
             this.apiService = new ApiService();
             this.LoadProducts();
             
@@ -39,7 +56,16 @@ namespace Sales.ViewModels
 
             var list = (List<Product>)response.Result;
             this.Products = new ObservableCollection<Product>(list);
+            this.IsRefreshing = false;
         }
-        
+
+        public ICommand RefreshCommand
+        {
+            get
+            {
+                return new RelayCommand(LoadProducts);
+            }
+        }
+
     }
 }
