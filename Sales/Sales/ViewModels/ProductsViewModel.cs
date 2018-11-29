@@ -39,7 +39,7 @@ namespace Sales.ViewModels
         public ProductsViewModel()
         {
 
-            this.IsRefreshing = false;
+            
             this.apiService = new ApiService();
             this.LoadProducts();
             
@@ -47,9 +47,12 @@ namespace Sales.ViewModels
 
         private async void LoadProducts()
         {
-            var response = await this.apiService.GetList<Product>("https://salesapiservices.azurewebsites.net", "/api", "/Products");
+            this.IsRefreshing = true;
+            var url = Application.Current.Resources["UrlApi"].ToString();
+            var response = await this.apiService.GetList<Product>(url, "/api", "/Products");
             if(!response.IsSuccess)
             {
+                this.isRefreshing = false;
                 await Application.Current.MainPage.DisplayAlert("Error", response.Message, "Accept");
                 return;
             }
