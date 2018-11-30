@@ -48,8 +48,18 @@ namespace Sales.ViewModels
         private async void LoadProducts()
         {
             this.IsRefreshing = true;
-            //var url = Application.Current.Resources["UrlApi"].ToString();
-            var response = await this.apiService.GetList<Product>("https://salesapiservices.azurewebsites.net", "/api", "/Products");
+
+            var Connection = await this.apiService.CheckConnection();
+            if (!Connection.IsSuccess)
+            {
+                this.isRefreshing = false;
+                await Application.Current.MainPage.DisplayAlert("Error", Connection.Message, "Accept");
+                return;
+
+            }
+
+            var url = Application.Current.Resources["UrlApi"].ToString();
+            var response = await this.apiService.GetList<Product>(url, "/api", "/Products");
             if(!response.IsSuccess)
             {
 

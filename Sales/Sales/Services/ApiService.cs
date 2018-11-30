@@ -19,7 +19,7 @@ namespace Sales.Services
                 return new Response
                 {
                     IsSuccess = false,
-                    Message = "Please turn ",
+                    Message = "Plese  tourn on your internet settings.",
                 };
             }
 
@@ -29,11 +29,19 @@ namespace Sales.Services
                 return new Response
                 {
                     IsSuccess = false,
-                    Message = Languages.NoInternet,
+                    Message = "No internet connection.",
                 };
             }
 
-            public async Task<Response> GetList<T>(string urlBase, string prefix, string controller )
+            return new Response
+            {
+                IsSuccess = true,
+            };
+        }
+
+
+
+        public async Task<Response> GetList<T>(string urlBase, string prefix, string controller )
         {
             try
             {
