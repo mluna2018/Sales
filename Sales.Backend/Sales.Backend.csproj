@@ -8,7 +8,7 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{C852B4A4-EE57-4308-817D-86340DB24B9A}</ProjectGuid>
+    <ProjectGuid>{BAD18A6A-B114-4794-86BD-9D7B8A06464B}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -45,9 +45,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CommonServiceLocator, Version=2.0.2.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
-      <HintPath>..\packages\CommonServiceLocator.2.0.2\lib\net45\CommonServiceLocator.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -198,16 +195,23 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AssistantsController.cs" />
+    <Compile Include="Controllers\CategoriesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
+    <Compile Include="Controllers\StudentsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\FilesHelper.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\CategoryView.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\LocalDataContext.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\ProductView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -216,6 +220,22 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Categories\books.jpeg" />
+    <Content Include="Content\Categories\car.png" />
+    <Content Include="Content\Categories\clothes.png" />
+    <Content Include="Content\Categories\electronics.jpeg" />
+    <Content Include="Content\Categories\electronics.png" />
+    <Content Include="Content\Categories\fashion.png" />
+    <Content Include="Content\Categories\food.png" />
+    <Content Include="Content\Categories\footware.jpeg" />
+    <Content Include="Content\Categories\jewellery.png" />
+    <Content Include="Content\Categories\kids.png" />
+    <Content Include="Content\Categories\kitchen.jpeg" />
+    <Content Include="Content\Categories\mobile.jpeg" />
+    <Content Include="Content\Categories\perfumes.jpeg" />
+    <Content Include="Content\Categories\sports.jpeg" />
+    <Content Include="Content\Products\audifonos.png" />
+    <Content Include="Content\Products\magic_mouse.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -225,7 +245,7 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <None Include="Properties\PublishProfiles\SalesBackendTecnonline - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\SalesBackend - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -276,6 +296,21 @@
     <Content Include="Views\Products\Details.cshtml" />
     <Content Include="Views\Products\Edit.cshtml" />
     <Content Include="Views\Products\Index.cshtml" />
+    <Content Include="Views\Categories\Create.cshtml" />
+    <Content Include="Views\Categories\Delete.cshtml" />
+    <Content Include="Views\Categories\Details.cshtml" />
+    <Content Include="Views\Categories\Edit.cshtml" />
+    <Content Include="Views\Categories\Index.cshtml" />
+    <Content Include="Views\Students\Create.cshtml" />
+    <Content Include="Views\Students\Delete.cshtml" />
+    <Content Include="Views\Students\Details.cshtml" />
+    <Content Include="Views\Students\Edit.cshtml" />
+    <Content Include="Views\Students\Index.cshtml" />
+    <Content Include="Views\Assistants\Create.cshtml" />
+    <Content Include="Views\Assistants\Delete.cshtml" />
+    <Content Include="Views\Assistants\Details.cshtml" />
+    <Content Include="Views\Assistants\Edit.cshtml" />
+    <Content Include="Views\Assistants\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -295,11 +330,11 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Sales.Common\Sales.Common.csproj">
-      <Project>{118f11eb-960d-4128-8fed-233d6715ef19}</Project>
+      <Project>{0bbf6d2c-546e-49aa-8d7d-b6a7c1de2ee9}</Project>
       <Name>Sales.Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\Sales.Domain\Sales.Domain.csproj">
-      <Project>{ee1728bb-95c0-4680-9373-d81743eac9aa}</Project>
+      <Project>{99c82e69-fd8d-4172-8e90-0e0f3021fcb4}</Project>
       <Name>Sales.Domain</Name>
     </ProjectReference>
   </ItemGroup>
@@ -319,9 +354,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>59090</DevelopmentServerPort>
+          <DevelopmentServerPort>61574</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:59090/</IISUrl>
+          <IISUrl>http://localhost:61574/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

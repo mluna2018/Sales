@@ -1,19 +1,14 @@
-﻿
-
-
-
-namespace Sales.Infrastructure
+﻿namespace Sales.Infrastructure
 {
-    using Sales.ViewModels;
+    using ViewModels;
 
     public class InstanceLocator
     {
-        public MainViewModels Main { get; set; }
+        public MainViewModel Main { get; set; }
 
         public InstanceLocator()
         {
-            this.Main = new MainViewModels();
-
+            this.Main = new MainViewModel();
         }
     }
 }

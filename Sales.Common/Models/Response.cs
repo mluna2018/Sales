@@ -1,6 +1,4 @@
-﻿
-
-namespace Sales.Common.Models
+﻿namespace Sales.Common.Models
 {
     public class Response
     {
@@ -9,6 +7,5 @@ namespace Sales.Common.Models
         public string Message { get; set; }
 
         public object Result { get; set; }
-
     }
 }

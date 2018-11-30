@@ -19,19 +19,35 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.price)
+            @Html.DisplayNameFor(model => model.Remarks)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.price)
+            @Html.DisplayFor(model => model.Remarks)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Isavailable)
+            @Html.DisplayNameFor(model => model.ImagePath)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Isavailable)
+            @Html.DisplayFor(model => model.ImagePath)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsAvailable)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsAvailable)
         </dd>
 
         <dt>
@@ -45,6 +61,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ProductId }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ProductId }, new { @class = "btn btn-warning" })
+    @Html.ActionLink("Back to List", "Index", new { }, new { @class = "btn btn-success" })
 </p>
