@@ -48,10 +48,11 @@ namespace Sales.ViewModels
         private async void LoadProducts()
         {
             this.IsRefreshing = true;
-            var url = Application.Current.Resources["UrlApi"].ToString();
-            var response = await this.apiService.GetList<Product>(url, "/api", "/Products");
+            //var url = Application.Current.Resources["UrlApi"].ToString();
+            var response = await this.apiService.GetList<Product>("https://salesapiservices.azurewebsites.net", "/api", "/Products");
             if(!response.IsSuccess)
             {
+
                 this.isRefreshing = false;
                 await Application.Current.MainPage.DisplayAlert("Error", response.Message, "Accept");
                 return;
